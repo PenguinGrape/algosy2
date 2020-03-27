@@ -18,7 +18,7 @@ vector<int>* up;
 void dfs (int v, int p, int w) {
     tin[v] = ++timer;
     droot[v] = w;
-    up[v]0 = p;
+    up[v][0] = p;
     for (int i=1; i<=depth; ++i)
         up[v][i] = up[up[v][i-1]][i-1];
     vector<pair<int, int>> ways = tree[v];
