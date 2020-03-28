@@ -5,7 +5,7 @@ int n;
 int ftree[10001];
 
 
-int sum(int x) {
+int f(int x) {
     int res = 0;
     while (x > 0) {
         res += ftree[x];
@@ -15,7 +15,7 @@ int sum(int x) {
 }
 
 
-void insert(int x) {
+void update(int x) {
     while (x <= n) {
         ftree[x]++;
         x += x & (-x);
@@ -37,8 +37,8 @@ int main() {
             cin >> arr[j];
         }
         for (int j = 1; j <= n; j++) {
-            s += j - sum(arr[j]);
-            insert(arr[j]);
+            s += j - f(arr[j]);
+            update(arr[j]);
         }
         if (s > min) {
             min = s;
